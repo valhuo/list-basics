@@ -16,6 +16,13 @@ public class ListBasics {
         // - contains many values of the same type,
         // - has a consistent order, and
         // - can contain duplicates.
+        //
+        // If you took COMP 123 here at Mac, you will recognize them from Python.
+        // The list above in Python would be:
+        //
+        //   ["one", "fish", "two", "fish"]
+        //
+        // Different syntax, same idea.
 
         // You can print a list:
 
@@ -27,8 +34,12 @@ public class ListBasics {
         List<String> magicWords = List.of("hocus", "pocus", "abracadabra");
         System.out.println("magicWords = " + magicWords);
 
+        // This is because of Java’s static type checking. Java wants to know
+        // what kinds of elements are in the list so that it can make sure you
+        // are using those elements in ways that make sense.
+
         // If the elements in the list are a primitive type, you have to use the
-        // corresponding wrapper type. That essentially means spelling out the
+        // corresponding “wrapper type.” That essentially means spelling out the
         // name of the primitive type as a whole word and capitalizing it,
         // e.g. “int” → “Integer”:
 
@@ -49,13 +60,23 @@ public class ListBasics {
         // - The variable `word` gets a new value for each element of the loop.
         //
         // - You have to declare `word` just like you declare any other variable.
+        //   `String word` is a variable declaration, tucked inside the loop.
         //
         // - The variable doesn't exist outside of the for loop; you can't use it
         //   after the closing brace. The term for this is “scope,” as in,
         //   “the scope of `word` is the for loop.”
 
+        // Again, if you took COMP 123, you will recognize the Python equivalent:
+        //
+        //   for word in magicWords:
+        //       print("I say " + word + "!!")
+        //
+        // (Note that because Python is dynamically typed, you do not need to
+        // explicitly specify that word is a string.)
+
+        // The scope of the variable `word` is limited to the inside of the loop.
         // Note, however, that variables declared _outside_ the loop can be
-        // visible inside it. Here the scope of sum extends outside the loop:
+        // visible inside it. Here the scope of `sum` extends outside the loop:
 
         int sum = 0;
         for(int number : magicNumbers) {
@@ -158,7 +179,7 @@ public class ListBasics {
         // Java also gives us the ability to _change_ what's in a list! Here’s
         // how you add a new element to the end of the list:
 
-        magicWords.add("expelliarmus");
+        magicWords.add("presto chango");
 
         // Oops! What happened?! That code compiles. Why doesn't it run?
         //
@@ -231,7 +252,7 @@ public class ListBasics {
         for(String word : magicWords) {
             magicWordsCopy.add(word);
         }
-        magicWordsCopy.add("expelliarmus");
+        magicWordsCopy.add("presto chango");
         System.out.println("magicWordsCopy = " + magicWordsCopy);
 
         // But wait! This is unnecessarily complex. What we just did is so
@@ -239,7 +260,7 @@ public class ListBasics {
 
         List<String> betterMagicWordsCopy = new ArrayList<>();
         betterMagicWordsCopy.addAll(magicWords);  // nice!
-        betterMagicWordsCopy.add("expelliarmus");
+        betterMagicWordsCopy.add("presto chango");
         System.out.println("betterMagicWordsCopy = " + betterMagicWordsCopy);
 
         // And in fact, creating a new list and then adding all the elements of
@@ -247,12 +268,12 @@ public class ListBasics {
         // You can put the list you want to copy right between the parentheses
         // of new ArrayList<>(…):
 
-        List<String> bestMagicWordsCopy = new ArrayList<>(magicWords);  // nicer!
-        bestMagicWordsCopy.add("expelliarmus");
+        List<String> bestMagicWordsCopy = new ArrayList<>(magicWords);  // even nicer!
+        bestMagicWordsCopy.add("presto chango");
         System.out.println("bestMagicWordsCopy = " + bestMagicWordsCopy);
 
         // There is a lot more to learn about lists in Java, but this is plenty
-        // to get us started with some interesting activities and labs.
+        // to get us started with some interesting activities and homeworks.
     }
 
     private static void section(String title) {
